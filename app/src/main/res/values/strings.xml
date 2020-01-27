@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">English Premier League</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="beranda">Beranda</string>
+    <string name="title_1">Top today\'s \nmatches for you</string>
+    <string name="home">Home</string>
+    <string name="away">Away</string>
+    <string name="colon">:</string>
+    <string name="coba_lagi">Coba lagi</string>
+    <string name="team">Team</string>
+    <string name="upcoming">Upcoming</string>
+    <string name="finish">Finished</string>
+    <string name="simpan">Simpan</string>
+</resources>

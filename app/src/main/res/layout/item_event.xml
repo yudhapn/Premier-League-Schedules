@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="clickListener"
+            type="com.task.papbfinalproject.ui.adapter.EventListener" />
+
+        <variable
+            name="event"
+            type="com.task.papbfinalproject.model.Event" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        app:cardElevation="4dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> clickListener.onClick(event)}">
+
+            <TextView
+                android:id="@+id/tv_league_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@android:color/darker_gray"
+                android:padding="8dp"
+                android:text="@{event.strLeague}"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Premier League" />
+
+            <ImageView
+                android:id="@+id/iv_home"
+                android:layout_width="110dp"
+                android:layout_height="100dp"
+                android:layout_margin="6dp"
+                android:scaleType="fitXY"
+                app:cardCornerRadius="12dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView"
+                app:setBadge="@{event.idHomeTeam}"
+                tools:background="@android:color/holo_red_dark" />
+
+            <TextView
+                android:id="@+id/tv_home_team"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="14dp"
+                android:text="@{event.strHomeTeam}"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/iv_home"
+                app:layout_constraintStart_toStartOf="@id/iv_home"
+                app:layout_constraintTop_toBottomOf="@id/iv_home"
+                tools:text="Liverpool" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="14dp"
+                android:text="@string/home"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@id/iv_home"
+                app:layout_constraintStart_toStartOf="@id/iv_home"
+                app:layout_constraintTop_toBottomOf="@+id/tv_league_name" />
+
+            <TextView
+                android:id="@+id/tv_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{event.dateEvent}"
+                android:textAlignment="center"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/tv_score_home"
+                app:layout_constraintEnd_toEndOf="@+id/tv_score_away"
+                app:layout_constraintStart_toStartOf="@+id/tv_score_home"
+                app:layout_constraintTop_toTopOf="@+id/textView" />
+
+            <ImageView
+                android:id="@+id/iv_away"
+                android:layout_width="110dp"
+                android:layout_height="100dp"
+                android:layout_margin="6dp"
+                android:scaleType="fitXY"
+                app:cardCornerRadius="12dp"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_home"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/iv_home"
+                app:setBadge="@{event.idAwayTeam}"
+                tools:background="@android:color/black" />
+
+            <TextView
+                android:id="@+id/tv_away_team"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{event.strAwayTeam}"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_home_team"
+                app:layout_constraintEnd_toEndOf="@id/iv_away"
+                app:layout_constraintStart_toStartOf="@id/iv_away"
+                app:layout_constraintTop_toTopOf="@+id/tv_home_team"
+                tools:text="Man City" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/away"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@id/iv_away"
+                app:layout_constraintStart_toStartOf="@id/iv_away"
+                app:layout_constraintTop_toTopOf="@+id/textView" />
+
+
+            <TextView
+                android:id="@+id/tv_colon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/colon"
+                android:textAlignment="center"
+                android:textSize="36sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/tv_home_team"
+                app:layout_constraintEnd_toStartOf="@+id/iv_away"
+                app:layout_constraintStart_toEndOf="@+id/iv_home"
+                app:layout_constraintTop_toTopOf="@+id/iv_home" />
+
+            <TextView
+                android:id="@+id/tv_score_home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="@{event.intHomeScore == null ? `0` : event.intHomeScore}"
+                android:textAlignment="center"
+                android:textSize="46sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_colon"
+                app:layout_constraintEnd_toStartOf="@+id/tv_colon"
+                app:layout_constraintTop_toTopOf="@+id/tv_colon"
+                tools:text="0" />
+
+            <TextView
+                android:id="@+id/tv_score_away"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@{event.intAwayScore == null ? `0` : event.intAwayScore}"
+                android:textAlignment="center"
+                android:textSize="46sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_colon"
+                app:layout_constraintStart_toEndOf="@+id/tv_colon"
+                app:layout_constraintTop_toTopOf="@+id/tv_colon"
+                tools:text="0" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

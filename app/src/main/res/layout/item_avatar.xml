@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="clickListener"
+            type="com.task.papbfinalproject.ui.adapter.AvatarListener" />
+
+        <variable
+            name="avatar"
+            type="com.task.papbfinalproject.model.Avatar" />
+    </data>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:onClick="@{() -> clickListener.onClick(avatar)}"
+        app:setAvatar="@{avatar.image}"
+        tools:src="@drawable/ic_avatar" />
+</layout>
